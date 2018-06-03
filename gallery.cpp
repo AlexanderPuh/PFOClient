@@ -53,14 +53,15 @@
 #include <QQmlContext>
 #include <QSettings>
 #include <QQuickStyle>
+#include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("Card Game");
-    QGuiApplication::setOrganizationName("QtProject");
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setApplicationName("Card Game");
+    QApplication::setOrganizationName("QtProject");
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     QSettings settings;
     QString style = QQuickStyle::name();

@@ -95,12 +95,12 @@ ApplicationWindow {
                     source: stackView.depth > 1 ? "images/back.png" : "images/drawer.png"
                 }
                 onClicked: {
-                    if (stackView.depth > 1) {
-                        stackView.pop()
-                        listView.currentIndex = -1
-                    } else {
+//                    if (stackView.depth > 1) {
+//                        stackView.pop()
+//                        listView.currentIndex = -1
+//                    } else {
                         drawer.open()
-                    }
+                   // }
                 }
             }
 
@@ -170,10 +170,10 @@ ApplicationWindow {
             model: ListModel {
 
                 ListElement { title: "Courses"; source: "qrc:/pages/courses.qml" }
-                ListElement { title: "Progress"; source: "qrc:/pages/TumblerPage.qml" }
+                ListElement { title: "Progress"; source: "qrc:/pages/Progress.qml" }
                 ListElement { title: "My Courses"; source: "qrc:/pages/TumblerPage.qml" }
                 ListElement { title: "News"; source: "qrc:/pages/TumblerPage.qml" }
-                ListElement { title: "Personal Data"; source: "qrc:/pages/TumblerPage.qml" }
+                ListElement { title: "Personal Data"; source: "qrc:/pages/PersonalData.qml" }
                 ListElement { title: "BusyIndicator"; source: "qrc:/pages/BusyIndicatorPage.qml" }
                 ListElement { title: "Button"; source: "qrc:/pages/ButtonPage.qml" }
                 ListElement { title: "CheckBox"; source: "qrc:/pages/CheckBoxPage.qml" }
