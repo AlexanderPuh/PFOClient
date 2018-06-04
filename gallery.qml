@@ -62,6 +62,155 @@ ApplicationWindow {
     visible: true
     title: "Qt Quick Controls 2"
 
+    Rectangle{
+    width: parent.width
+    height: parent.height
+    id: accountLogin
+    color: "white"
+    ColumnLayout{
+        width: parent.width
+        height: parent.height
+        spacing: 2
+
+        TextField{
+            id: login
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+            placeholderText: "Login"
+        }
+
+        TextField
+        {
+            id: password
+            anchors.top: login.bottom
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            placeholderText: "Password"
+        }
+        Button{
+            id: loginButton
+            anchors.top: password.bottom
+            width: password.width
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            text: qsTr("Login")
+
+            onClicked: {
+                accountLogin.visible = false
+                toolBar.visible = true
+                stackView.visible = true
+            }
+        }
+
+        Button
+        {
+            anchors.top: loginButton.bottom
+            width: password.width
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+
+            text: qsTr("SignUp")
+            onClicked: {
+                accountLogin.visible = false
+                newAccount.visible = true
+            }
+        }
+    }
+    }
+    Rectangle{
+    width: parent.width
+    height: parent.height
+    id: newAccount
+    visible: false
+    color: "white"
+    ColumnLayout{
+
+        spacing: 10
+        width: parent.width
+        Label {
+            width: parent.width
+            wrapMode: Label.Wrap
+            font.pixelSize: 24
+            horizontalAlignment: Qt.AlignHCenter
+            text: "Account Setting"
+        }
+
+
+        TextField {
+            id: field
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your name")
+        }
+
+        TextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your login")
+        }
+
+        TextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your email")
+            inputMethodHints: Qt.ImhEmailCharactersOnly
+
+        }
+
+        Switch {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Teacher"
+            enabled: true
+        }
+
+        TextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your phine number")
+        }
+
+        TextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your adress")
+        }
+
+
+
+
+        TextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your password password")
+            echoMode: "Password"
+        }
+
+        TextField {
+
+            id: confPass
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Confirm password")
+            echoMode: "Password"
+        }
+
+
+        Button {
+            width: confPass.width
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Login"
+
+            onClicked: {
+                newAccount.visible = false
+                toolBar.visible = true
+                stackView.visible = true
+
+            }
+        }
+
+    }
+}
     Settings {
         id: settings
         property string style: "Default"
@@ -82,7 +231,9 @@ ApplicationWindow {
     }
 
     header: ToolBar {
+        id: toolBar
         Material.foreground: "white"
+        visible: false
         RowLayout {
             spacing: 20
             anchors.fill: parent
@@ -210,10 +361,9 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-
+        visible: false
         initialItem: Pane {
             id: pane
-
 
 
             Label {
@@ -235,6 +385,8 @@ ApplicationWindow {
                 anchors.bottom: parent.bottom
             }
         }
+
+
     }
 
     Dialog {
