@@ -3,6 +3,8 @@
 import QtQuick 2.0
 
 ListModel {
+    id: model
+
     ListElement {
         name: "Bill Smith"
         number: "555 3264"

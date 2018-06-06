@@ -322,7 +322,7 @@ ApplicationWindow {
 
                 ListElement { title: "Courses"; source: "qrc:/pages/courses.qml" }
                 ListElement { title: "Progress"; source: "qrc:/pages/Progress.qml" }
-                ListElement { title: "My Courses"; source: "qrc:/pages/TumblerPage.qml" }
+                ListElement { title: "My Courses"; source: "qrc:/pages/MyCoursesPage.qml" }
                 ListElement { title: "News"; source: "qrc:/pages/TumblerPage.qml" }
                 ListElement { title: "Personal Data"; source: "qrc:/pages/PersonalData.qml" }
                 ListElement { title: "BusyIndicator"; source: "qrc:/pages/BusyIndicatorPage.qml" }
