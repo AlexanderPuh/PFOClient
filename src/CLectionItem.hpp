@@ -1,0 +1,5 @@
+#ifndef CLECTIONITEM_HPP
+#define CLECTIONITEM_HPP
+
+
+#endif//CLECTIONITEM_HPP

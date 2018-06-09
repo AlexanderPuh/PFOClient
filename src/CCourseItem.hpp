@@ -1,0 +1,5 @@
+#ifndef CCOURSEITEM_HPP
+#define CCOURSEITEM_HPP
+
+
+#endif//CCOURSEITEM_HPP

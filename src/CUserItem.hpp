@@ -1,0 +1,5 @@
+#ifndef CUSERITEM_HPP
+#define CUSERITEM_HPP
+
+
+#endif//CUSERITEM_HPP
