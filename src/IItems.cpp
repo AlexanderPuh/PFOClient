@@ -4,3 +4,9 @@ IItems::~IItems()
 {
 
 }
+
+IItems::IItems(QObject *parent):
+    QObject (parent)
+{
+
+}

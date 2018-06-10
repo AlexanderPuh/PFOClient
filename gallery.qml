@@ -54,6 +54,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtQuick.Controls.Universal 2.1
 import Qt.labs.settings 1.0
+import client.user.imp 1.0
 
 ApplicationWindow {
     id: window
@@ -62,63 +63,83 @@ ApplicationWindow {
     visible: true
     title: "Qt Quick Controls 2"
 
-    Rectangle{
-    width: parent.width
-    height: parent.height
-    id: accountLogin
-    color: "white"
-    ColumnLayout{
-        width: parent.width
-        height: parent.height
-        spacing: 2
-
-        TextField{
-            id: login
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            placeholderText: "Login"
-        }
-
-        TextField
-        {
-            id: password
-            anchors.top: login.bottom
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-
-            placeholderText: "Password"
-        }
-        Button{
-            id: loginButton
-            anchors.top: password.bottom
-            width: password.width
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-
-            text: qsTr("Login")
-
-            onClicked: {
-                accountLogin.visible = false
-                toolBar.visible = true
-                stackView.visible = true
-            }
-        }
-
-        Button
-        {
-            anchors.top: loginButton.bottom
-            width: password.width
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-
-            text: qsTr("SignUp")
-            onClicked: {
-                accountLogin.visible = false
-                newAccount.visible = true
-            }
-        }
-    }
+    User{
+            id: client
+            login: "test"
+            password: "test"
     }
     Rectangle{
     width: parent.width
     height: parent.height
     id: newAccount
+    visible: true
+    color: "white"
+    ColumnLayout{
+
+        spacing: 10
+        width: parent.width
+        Label {
+            width: parent.width
+            wrapMode: Label.Wrap
+            font.pixelSize: 24
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Welcome!"
+        }
+
+
+        TextField {
+            id: field
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your name")
+        }
+
+        TextField {
+
+            id: confPass
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            placeholderText: qsTr("Enter your password")
+            echoMode: "Password"
+        }
+
+
+        Button {
+            implicitWidth: confPass.width
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Login"
+
+            onClicked: {
+                newAccount.visible = false
+                toolBar.visible = true
+                stackView.visible = true
+
+            }
+        }
+        Button {
+            implicitWidth: confPass.width
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Sign Up"
+
+            onClicked: {
+                newLogin.visible = true
+                newAccount.visible =  false
+                toolBar.visible = false
+                stackView.visible = false
+
+            }
+        }
+
+    }
+}
+    Rectangle{
+    width: parent.width
+    height: parent.height
+    id: newLogin
     visible: false
     color: "white"
     ColumnLayout{
@@ -135,7 +156,7 @@ ApplicationWindow {
 
 
         TextField {
-            id: field
+            id: field1
             anchors.horizontalCenter: parent.horizontalCenter
 
             placeholderText: qsTr("Enter your name")
@@ -186,7 +207,7 @@ ApplicationWindow {
 
         TextField {
 
-            id: confPass
+            id: confPass1
             anchors.horizontalCenter: parent.horizontalCenter
 
             placeholderText: qsTr("Confirm password")
@@ -195,7 +216,7 @@ ApplicationWindow {
 
 
         Button {
-            width: confPass.width
+            width: confPass1.width
 
             anchors.horizontalCenter: parent.horizontalCenter
 
@@ -257,7 +278,7 @@ ApplicationWindow {
 
             Label {
                 id: titleLabel
-                text: listView.currentItem ? listView.currentItem.text : "PFO"
+                text: listView.currentItem ? listView.currentItem.text : "PFC"
                 font.pixelSize: 20
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignVCenter
@@ -460,16 +481,15 @@ ApplicationWindow {
 
             Label {
                 width: aboutDialog.availableWidth
-                text: "The Qt Quick Controls 2 module delivers the next generation user interface controls based on Qt Quick."
+                text: "<b>PFC Application</b>"
                 wrapMode: Label.Wrap
                 font.pixelSize: 12
             }
 
             Label {
                 width: aboutDialog.availableWidth
-                text: "In comparison to the desktop-oriented Qt Quick Controls 1, Qt Quick Controls 2 "
-                    + "are an order of magnitude simpler, lighter and faster, and are primarily targeted "
-                    + "towards embedded and mobile platforms."
+                text: "The aim of work is the development of the information system for education and evaluating students. "
+
                 wrapMode: Label.Wrap
                 font.pixelSize: 12
             }

@@ -1,6 +1,7 @@
 TEMPLATE = app
 TARGET = gallery
 QT += charts quick quickcontrols2
+CONFIG += c++11
 
 SOURCES += \
     $$files(*.cpp) \
@@ -14,7 +15,6 @@ RESOURCES += \
     $$files(images/*.png) \
     $$files(images/+material/*.png) \
     $$files(pages/*.qml)
-
 
 INSTALLS += D:\gallery
 

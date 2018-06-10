@@ -50,45 +50,108 @@
 
 import QtQuick 2.6
 import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
 
-ScrollablePage {
-    id: framePage
+Page {
+    id: pageTab
 
-    readonly property int itemWidth: Math.max(button.implicitWidth, Math.min(button.implicitWidth * 3, page.availableWidth / 3 * 2))
+    SwipeView {
+        id: swipeView
+        anchors.fill: parent
+        currentIndex: tabBar.currentIndex
+        Loader {
+            //anchors.fill: parent
 
-    Column {
-        spacing: 40
-        width: parent.width
+            id: lectionContaines
+        }
+        Loader {
 
-        Label {
-            width: parent.width
-            wrapMode: Label.Wrap
-            horizontalAlignment: Qt.AlignHCenter
-            text: "Frame is used to layout a logical group of controls together, within a visual frame."
+            id: addTestsPage
         }
 
-        Frame {
-            anchors.horizontalCenter: parent.horizontalCenter
+    }
 
-            Column {
-                spacing: 20
-                width: page.itemWidth
+    footer: TabBar {
+        id: tabBar
+        currentIndex: swipeView.currentIndex
 
-                RadioButton {
-                    text: "First"
-                    checked: true
-                    width: parent.width
-                }
-                RadioButton {
-                    id: button
-                    text: "Second"
-                    width: parent.width
-                }
-                RadioButton {
-                    text: "Third"
-                    width: parent.width
-                }
+        TabButton {
+            text: "Add Lection"
+
+            onClicked: {
+                onClicked: lectionContaines.source = "qrc:/pages/AddLection.qml"
+                lectionContaines.visible = true
+                addTestsPage.visible = false
+            }
+        }
+        TabButton {
+            text: "Add Test"
+            onClicked: {
+                onClicked: addTestsPage.source = "qrc:/pages/AddTests.qml"
+
+                lectionContaines.visible = false
+                addTestsPage.visible = true
+
+            }
+        }
+        TabButton {
+            text: "Submit"
+            onClicked: {
+                aboutDialog.open()
             }
         }
     }
+    Dialog {
+        id: aboutDialog
+        modal: true
+        focus: true
+        title: "Sumbit"
+        x: (window.width - width) / 2
+        y: window.height / 6
+        width: Math.min(window.width, window.height) / 3 * 2
+        contentHeight: aboutColumn.height
+
+        Column {
+            id: aboutColumn
+            spacing: 20
+
+            Label {
+                width: aboutDialog.availableWidth
+                text: "<b>Are you shure?</b>"
+                wrapMode: Label.Wrap
+                font.pixelSize: 12
+            }
+            GridLayout{
+            columns: 2
+            width: parent.width
+            Button{
+                id: declineB
+            text: "Cancel"
+            Layout.fillWidth: true
+            }
+            Button{
+                text: "Yes"
+                Layout.fillWidth: true
+                onClicked: {
+
+                    aboutDialog.close()
+                    saveDialog.open()
+                }
+            }
+            }
+        }
+    }
+    Dialog {
+        id: saveDialog
+        modal: true
+        focus: true
+        title: "Saved!"
+        x: (window.width - width) / 2
+        y: window.height / 6
+        width: Math.min(window.width, window.height) / 3 * 2
+        contentHeight: aboutColumn.height
+
+
 }
+}
+

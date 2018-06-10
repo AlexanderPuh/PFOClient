@@ -55,8 +55,10 @@
 #include <QQuickStyle>
 #include <QApplication>
 #include "src/CMainInterface.hpp"
+
 int main(int argc, char *argv[])
 {
     CMainInterface mainInterface;
+    mainInterface.hadleUserCredentionals();
     return  mainInterface.UICreator(argc, argv);
 }

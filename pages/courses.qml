@@ -63,6 +63,32 @@ ScrollablePage {
         id: pane
         padding: 0
         visible: true
+ColumnLayout{
+    anchors.fill: parent
+    spacing: 20
+        Button{
+            id: addCourse
+            implicitWidth: parent.width
+            implicitHeight: 50
+
+            anchors.topMargin: 200
+
+            anchors.bottomMargin: 200
+            text: "Add New Course"
+            onClicked: {
+                onTriggered: addCourseDialog.open()
+
+            }
+        }
+
+        ColumnLayout{
+            anchors.topMargin: 20
+
+
+            id: allCourses
+            anchors.top: addCourse.bottom
+
+
         ListView {
             id: listView
             width: parent.width; height: parent.width
@@ -79,12 +105,12 @@ ScrollablePage {
                     id: wrapper
                     width: parent.width
                     height: 50
-                    text: name + ": " + number
+                    text: name
                     onClicked: {
                         listView.currentIndex = index
                         console.log(index)
                         nameOfCoures.text = name
-                        descriptionOfCourse.text = number
+                        descriptionOfCourse.text = description
                         onTriggered: testDialog.open()
 
                     }
@@ -97,30 +123,20 @@ ScrollablePage {
         }
 
 
+}
 
 
-
+}
 
 Dialog {
     id: testDialog
     x: Math.round((window.width - width) / 2)
     y: Math.round(window.height / 6)
-    width: Math.round(Math.min(window.width, window.height) / 3 * 2)
+    width: 360
     modal: true
     focus: true
-    title: "Cource"
+    title: nameOfCoures
 
-    standardButtons: Dialog.Yes | Dialog.No
-
-    onAccepted: {
-        console.log("yes")
-        title: "werwrr"
-        settingsDialog.close()
-    }
-    onRejected: {
-        console.log("no")
-        settingsDialog.close()
-    }
 
     contentItem: ColumnLayout {
         id: settingsColumn
@@ -129,13 +145,107 @@ Dialog {
 
             Label {
                 id: nameOfCoures
+                font.bold: true
             }
 
             Label {
                 anchors.top: nameOfCoures.bottom
                 id: descriptionOfCourse
+                wrapMode: Text.WordWrap
+
+                horizontalAlignment:  Text.AlignHCente
+            }
+        Column{
+            anchors.top: descriptionOfCourse.bottom +25
+            spacing: 2
+            width: parent.width
+            GridLayout{
+            columns: 2
+            width: parent.width
+            Button{
+                id: declineB
+            text: "Cancel"
+            Layout.fillWidth: true
+            }
+            Button{
+                text: "Follow"
+                Layout.fillWidth: true
+            }
             }
 
+        }
+
+
     }
-}}
+}
+
+
+
+Dialog {
+    id: addCourseDialog
+    x: Math.round((window.width - width) / 2)
+    y: Math.round(window.height / 6)
+    width: 360
+    modal: true
+    focus: true
+    title: "New Course"
+
+
+    contentItem: ColumnLayout {
+        id: settingsCourseColumn
+        spacing: 20
+
+
+            TextField {
+                id: nameOfNewCoures
+                font.bold: true
+                Layout.fillWidth: true
+
+                placeholderText: "Add Name of Course"
+            }
+
+            TextArea {
+                anchors.top: nameOfNewCoures.bottom
+                id: descriptionOfNewCourse
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+
+                placeholderText: "Add description of Course"
+
+                horizontalAlignment:  Text.AlignHCente
+            }
+        Column{
+            anchors.top: descriptionOfNewCourse.bottom +25
+            spacing: 2
+            width: parent.width
+            GridLayout{
+            columns: 2
+            width: parent.width
+            Button{
+                id: declineSave
+            text: "Cancel"
+            Layout.fillWidth: true
+            onClicked: {
+
+                addCourseDialog.close()
+            }
+            }
+            Button{
+                text: "Save"
+                Layout.fillWidth: true
+                onClicked: {
+
+                    addCourseDialog.close()
+                }
+            }
+            }
+
+        }
+
+
+    }
+}
+
+
+    }
 }

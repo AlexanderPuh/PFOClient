@@ -70,8 +70,9 @@ ScrollablePage {
             ChartView {
                 title: "Data about passing courses"
                 anchors.fill: parent
-                legend.visible: false
+                legend.visible: true
                 antialiasing: true
+                anchors.horizontalCenter: parent.horizontalCenter
 
                 ValueAxis{
                     id: valueAxisX
@@ -121,7 +122,7 @@ ScrollablePage {
 
                     }
 
-                    name: "LineSeries"
+                    name: "HMI"
                     XYPoint { x: 0; y: 0 }
                     XYPoint { x: 1; y: 2 }
                     XYPoint { x: 2; y: 3 }
@@ -132,7 +133,7 @@ ScrollablePage {
                 LineSeries {
                     axisX: valueAxisX
 
-                    name: "Test"
+                    name: "UML"
                     XYPoint { x: 0; y: 3 }
                     XYPoint { x: 1; y: 3 }
                     XYPoint { x: 2; y: 3 }

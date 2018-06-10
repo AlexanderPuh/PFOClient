@@ -52,7 +52,7 @@ import QtQuick 2.6
 import QtQuick.Controls 2.1
 
 ScrollablePage {
-    id: page
+    id: pageSlide
 
     Column {
         spacing: 40

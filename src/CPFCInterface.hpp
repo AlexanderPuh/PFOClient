@@ -2,24 +2,38 @@
 #define CPFCINTERFACE_HPP
 
 #include <vector>
+#include <iostream>
+#include <memory>
+#include <deque>
 
 #include "IItems.hpp"
+#include <QTcpSocket>
+#include <QObject>
+#include <QDataStream>
 
-
-class CPFCInterface{
-
+#include "ItemsInc.hpp"
+using namespace std;
+class CPFCInterface : public QObject{
+    Q_OBJECT
 public:
-
-
-
-    CPFCInterface ();
+    explicit CPFCInterface (QObject *parent = nullptr);
     ~CPFCInterface();
+
     void sendRequest();
     void setData();
-    void construct();
-
+    void construct(QTcpSocket*  socket);
+    void registerItems();
+    void reserveQueue(const PFC::Items& items);
 public:
-    std::vector<IItems> mItems;
+
+private:
+    int currentItem;
+    std::deque<PFC::Items> mMessagesQueue;
+    std::vector<std::shared_ptr<IItems>> mItems;
+
+
+private slots:
+    void slotReadyRead   (QTcpSocket *socket);
 
 };
 #endif//CPFCINTERFACE_HPP
