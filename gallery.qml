@@ -346,32 +346,32 @@ ApplicationWindow {
                 ListElement { title: "My Courses"; source: "qrc:/pages/MyCoursesPage.qml" }
                 ListElement { title: "News"; source: "qrc:/pages/TumblerPage.qml" }
                 ListElement { title: "Personal Data"; source: "qrc:/pages/PersonalData.qml" }
-                ListElement { title: "BusyIndicator"; source: "qrc:/pages/BusyIndicatorPage.qml" }
-                ListElement { title: "Button"; source: "qrc:/pages/ButtonPage.qml" }
-                ListElement { title: "CheckBox"; source: "qrc:/pages/CheckBoxPage.qml" }
-                ListElement { title: "ComboBox"; source: "qrc:/pages/ComboBoxPage.qml" }
-                ListElement { title: "DelayButton"; source: "qrc:/pages/DelayButtonPage.qml" }
-                ListElement { title: "Dial"; source: "qrc:/pages/DialPage.qml" }
-                ListElement { title: "Dialog"; source: "qrc:/pages/DialogPage.qml" }
-                ListElement { title: "Delegates"; source: "qrc:/pages/DelegatePage.qml" }
-                ListElement { title: "Frame"; source: "qrc:/pages/FramePage.qml" }
-                ListElement { title: "GroupBox"; source: "qrc:/pages/GroupBoxPage.qml" }
-                ListElement { title: "PageIndicator"; source: "qrc:/pages/PageIndicatorPage.qml" }
-                ListElement { title: "ProgressBar"; source: "qrc:/pages/ProgressBarPage.qml" }
-                ListElement { title: "RadioButton"; source: "qrc:/pages/RadioButtonPage.qml" }
-                ListElement { title: "RangeSlider"; source: "qrc:/pages/RangeSliderPage.qml" }
-                ListElement { title: "ScrollBar"; source: "qrc:/pages/ScrollBarPage.qml" }
-                ListElement { title: "ScrollIndicator"; source: "qrc:/pages/ScrollIndicatorPage.qml" }
-                ListElement { title: "Slider"; source: "qrc:/pages/SliderPage.qml" }
-                ListElement { title: "SpinBox"; source: "qrc:/pages/SpinBoxPage.qml" }
-                ListElement { title: "StackView"; source: "qrc:/pages/StackViewPage.qml" }
-                ListElement { title: "SwipeView"; source: "qrc:/pages/SwipeViewPage.qml" }
-                ListElement { title: "Switch"; source: "qrc:/pages/SwitchPage.qml" }
-                ListElement { title: "TabBar"; source: "qrc:/pages/TabBarPage.qml" }
-                ListElement { title: "TextArea"; source: "qrc:/pages/TextAreaPage.qml" }
-                ListElement { title: "TextField"; source: "qrc:/pages/TextFieldPage.qml" }
-                ListElement { title: "ToolTip"; source: "qrc:/pages/ToolTipPage.qml" }
-                ListElement { title: "Tumbler"; source: "qrc:/pages/TumblerPage.qml" }
+//                ListElement { title: "BusyIndicator"; source: "qrc:/pages/BusyIndicatorPage.qml" }
+//                ListElement { title: "Button"; source: "qrc:/pages/ButtonPage.qml" }
+//                ListElement { title: "CheckBox"; source: "qrc:/pages/CheckBoxPage.qml" }
+//                ListElement { title: "ComboBox"; source: "qrc:/pages/ComboBoxPage.qml" }
+//                ListElement { title: "DelayButton"; source: "qrc:/pages/DelayButtonPage.qml" }
+//                ListElement { title: "Dial"; source: "qrc:/pages/DialPage.qml" }
+//                ListElement { title: "Dialog"; source: "qrc:/pages/DialogPage.qml" }
+//                ListElement { title: "Delegates"; source: "qrc:/pages/DelegatePage.qml" }
+//                ListElement { title: "Frame"; source: "qrc:/pages/FramePage.qml" }
+//                ListElement { title: "GroupBox"; source: "qrc:/pages/GroupBoxPage.qml" }
+//                ListElement { title: "PageIndicator"; source: "qrc:/pages/PageIndicatorPage.qml" }
+//                ListElement { title: "ProgressBar"; source: "qrc:/pages/ProgressBarPage.qml" }
+//                ListElement { title: "RadioButton"; source: "qrc:/pages/RadioButtonPage.qml" }
+//                ListElement { title: "RangeSlider"; source: "qrc:/pages/RangeSliderPage.qml" }
+//                ListElement { title: "ScrollBar"; source: "qrc:/pages/ScrollBarPage.qml" }
+//                ListElement { title: "ScrollIndicator"; source: "qrc:/pages/ScrollIndicatorPage.qml" }
+//                ListElement { title: "Slider"; source: "qrc:/pages/SliderPage.qml" }
+//                ListElement { title: "SpinBox"; source: "qrc:/pages/SpinBoxPage.qml" }
+//                ListElement { title: "StackView"; source: "qrc:/pages/StackViewPage.qml" }
+//                ListElement { title: "SwipeView"; source: "qrc:/pages/SwipeViewPage.qml" }
+//                ListElement { title: "Switch"; source: "qrc:/pages/SwitchPage.qml" }
+//                ListElement { title: "TabBar"; source: "qrc:/pages/TabBarPage.qml" }
+//                ListElement { title: "TextArea"; source: "qrc:/pages/TextAreaPage.qml" }
+//                ListElement { title: "TextField"; source: "qrc:/pages/TextFieldPage.qml" }
+//                ListElement { title: "ToolTip"; source: "qrc:/pages/ToolTipPage.qml" }
+//                ListElement { title: "Tumbler"; source: "qrc:/pages/TumblerPage.qml" }
 
             }
 
@@ -388,23 +388,17 @@ ApplicationWindow {
 
 
             Label {
-                text: "Trace Checker. For check logs"
-                anchors.margins: 20
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: arrow.top
-                horizontalAlignment: Label.AlignHCenter
-                verticalAlignment: Label.AlignVCenter
-                wrapMode: Label.Wrap
+                text: "<h1>PFC</h1>
 
+<p>The aim of work is the development of the information system for education and evaluating students.
+Methods of developing technology based on C++, QML, SQLite.
+Results: the analysis is performed and the program
+<br>realization of the information system for education and evaluating students for educational institution is completed.
+Key words: information system, client part, education programm, desktop application<br>, C++, QML, SQLite.</p>"
+                font.pixelSize: 14
             }
 
-            Image {
-                id: arrow
-                source: "images/arrow.png"
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-            }
+
         }
 
 

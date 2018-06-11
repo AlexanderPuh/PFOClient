@@ -10,7 +10,7 @@ Flickable {
 
 
     Pane {
-        id: addTests
+        id: addTestsContain
         width: flickable.width
         height: flickable.height * 1.25
         GridLayout{
@@ -20,123 +20,118 @@ Flickable {
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
-            text: "Add question:"
+            text: "Question #1"
             font.pixelSize: 24
             font.bold: true
         }
-        TextField{
+        Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
+            font.pixelSize: 14
 
-            placeholderText: "Enter name of Question"
+            text: "На какой презентация был впревые показан Material design"
         }
 
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
 
-            text: "Enter possible answers"
+            text: "Answers:"
 
         }
         CheckBox {
-            text: "First"
-
+            text: "Google I/O"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Yandex"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Apple"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Другие"
             checked: true
         }
 
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
-            text: "Add question:"
+            text: "Question #2"
             font.pixelSize: 24
             font.bold: true
         }
-
-        TextField{
+        Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
+            font.pixelSize: 14
 
-            placeholderText: "Enter name of Question"
+            text: "Какую концепцию дизайна можно сравнивать с Material?"
         }
 
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
 
-            text: "Enter possible answers"
+            text: "Answers:"
 
         }
         CheckBox {
-            text: "First"
+            text: "Fluent design"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Universal"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Apple"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Другие"
             checked: true
         }
 
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
-            text: "Add question:"
+            text: "Question #3"
             font.pixelSize: 24
             font.bold: true
         }
-        TextField{
+        Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
+            font.pixelSize: 14
 
-            placeholderText: "Enter name of Question"
+            text: "Какой принцип не относятся к Material Design?"
         }
 
         Label{
             Layout.fillWidth: true
             Layout.columnSpan: 2
 
-            text: "Enter possible answers"
+            text: "Answers:"
 
         }
         CheckBox {
-            text: "First"
+            text: "Материал - это метафора"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Глубина объемов"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Вдумчивая анимация"
             checked: true
         }
         CheckBox {
-            text: "First"
+            text: "Нет ответа"
             checked: true
-        }
-        Button
-        {
-            Layout.fillWidth: true
-            Layout.columnSpan: 2
-            text: "Add Question"
         }
 
     }

@@ -66,7 +66,7 @@ Page {
         }
         Loader {
 
-            id: addTestsPage
+            id: addTests
         }
 
     }
@@ -81,16 +81,16 @@ Page {
             onClicked: {
                 onClicked: lectionContaines.source = "qrc:/pages/AddLection.qml"
                 lectionContaines.visible = true
-                addTestsPage.visible = false
+                addTests.visible = false
             }
         }
         TabButton {
             text: "Add Test"
             onClicked: {
-                onClicked: addTestsPage.source = "qrc:/pages/AddTests.qml"
+                onClicked: addTests.source = "qrc:/pages/AddTests.qml"
 
                 lectionContaines.visible = false
-                addTestsPage.visible = true
+                addTests.visible = true
 
             }
         }

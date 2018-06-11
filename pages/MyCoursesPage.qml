@@ -64,7 +64,11 @@ Pane {
         id: pageTab
     }
 
+Loader {
+    anchors.fill: parent
 
+    id: pageLection
+}
     Column {
         id: first
         spacing: 40
@@ -77,8 +81,7 @@ Pane {
             width: parent.width
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHCenter
-            text: "ComboBox can be made \l editable. An editable combo box auto-"
-                + "completes its text based on what is available in the model."
+            text: "Please select course fo follow"
         }
         GridLayout{
             columns: 2
@@ -148,9 +151,12 @@ Pane {
                     onClicked: {
                         listView.currentIndex = index
                         console.log(index)
+                        pageLection.source = "qrc:/pages/Lection.qml"
+                        first.visible = false
                         nameOfCoures.text = name
                         descriptionOfCourse.text = description
                         onTriggered: testDialog.open()
+
 
                     }
                 }
